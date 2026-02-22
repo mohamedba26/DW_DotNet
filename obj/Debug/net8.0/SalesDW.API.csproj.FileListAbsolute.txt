@@ -137,4 +137,5 @@ C:\mohamed\dotnet\SalesDW.API\SalesDW.API\obj\Debug\net8.0\SalesDW.API.pdb
 C:\mohamed\dotnet\SalesDW.API\SalesDW.API\obj\Debug\net8.0\SalesDW.API.genruntimeconfig.cache
 C:\mohamed\dotnet\SalesDW.API\SalesDW.API\obj\Debug\net8.0\ref\SalesDW.API.dll
 C:\mohamed\dotnet\SalesDW.API\SalesDW.API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\mohamed\dotnet\SalesDW.API\SalesDW.API\obj\Debug\net8.0\SalesDW.API.sourcelink.json
 C:\mohamed\dotnet\SalesDW.API\SalesDW.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

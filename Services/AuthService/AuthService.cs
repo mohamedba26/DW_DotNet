@@ -42,7 +42,7 @@ public class AuthService : IAuthService
         return user;
     }
 
-    public async Task<string?> LoginAsync(string email, string password)
+    public async Task<AuthLoginResult?> LoginAsync(string email, string password)
     {
         var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
         if (user == null) return null;
@@ -73,7 +73,9 @@ public class AuthService : IAuthService
             signingCredentials: creds
         );
 
-        return new JwtSecurityTokenHandler().WriteToken(token);
+        var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+
+        return new AuthLoginResult { Token = tokenString, Role = user.Role };
     }
 
     public async Task<bool> ResetPasswordAsync(string email, string oldPassword, string newPassword)

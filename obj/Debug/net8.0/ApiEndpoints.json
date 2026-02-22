@@ -48,6 +48,85 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SalesDW.API.Controllers.AuthProductController",
+    "Method": "GetAll",
+    "RelativePath": "api/AuthProduct",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SalesDW.API.Controllers.AuthProductController",
+    "Method": "Create",
+    "RelativePath": "api/AuthProduct",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "p",
+        "Type": "SalesDW.API.Models.AuthProduct",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SalesDW.API.Controllers.AuthProductController",
+    "Method": "GetById",
+    "RelativePath": "api/AuthProduct/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SalesDW.API.Controllers.AuthProductController",
+    "Method": "Update",
+    "RelativePath": "api/AuthProduct/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "p",
+        "Type": "SalesDW.API.Models.AuthProduct",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SalesDW.API.Controllers.AuthProductController",
+    "Method": "Delete",
+    "RelativePath": "api/AuthProduct/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SalesDW.API.Controllers.DimCustomerController",
     "Method": "GetAll",
     "RelativePath": "api/DimCustomer",

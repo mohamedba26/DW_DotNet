@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using SalesDW.API.Data;
 using SalesDW.API.Services.AuthService;
+using SalesDW.API.Services.AuthProductService;
 using SalesDW.API.Services.DimCustomerService;
 using SalesDW.API.Services.DimDateService;
 using SalesDW.API.Services.DimProductService;
@@ -70,6 +71,7 @@ builder.Services.AddScoped<IFactPurchasingService, FactPurchasingService>();
 builder.Services.AddScoped<IFactSaleService, FactSaleService>();
 builder.Services.AddScoped<IStatisticsService, StatisticsService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IAuthProductService, AuthProductService>();
 
 // Configure JWT
 var jwtKey = builder.Configuration["Jwt:Key"];

@@ -28,9 +28,9 @@ public class AuthController : ControllerBase
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginRequest req)
     {
-        var token = await _auth.LoginAsync(req.Email, req.Password);
-        if (token == null) return Unauthorized();
-        return Ok(new { token });
+        var result = await _auth.LoginAsync(req.Email, req.Password);
+        if (result == null) return Unauthorized();
+        return Ok(new { token = result.Token, role = result.Role });
     }
 
     [HttpPut("reset-password")]
