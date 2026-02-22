@@ -32,6 +32,7 @@ public class AuthDbContext : DbContext
             entity.Property(e => e.Category).HasMaxLength(100);
             entity.Property(e => e.StandardCost).HasColumnType("money");
             entity.Property(e => e.ListPrice).HasColumnType("money");
+            entity.Property(e => e.Image).HasColumnType("nvarchar(max)");
         });
 
         base.OnModelCreating(modelBuilder);

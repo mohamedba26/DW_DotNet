@@ -42,6 +42,7 @@ namespace SalesDW.API.Services.AuthProductService
             existing.ListPrice = p.ListPrice;
             existing.Subcategory = p.Subcategory;
             existing.Category = p.Category;
+            existing.Image = p.Image;
 
             await _context.SaveChangesAsync();
             return existing;

@@ -4194,11 +4194,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\mohamed\\dotnet\\SalesDW.API\\SalesDW.API\\SalesDW.API.csproj",
+      "projectUniqueName": "C:\\mohamed\\dotnet\\DW_DotNet\\SalesDW.API.csproj",
       "projectName": "SalesDW.API",
-      "projectPath": "C:\\mohamed\\dotnet\\SalesDW.API\\SalesDW.API\\SalesDW.API.csproj",
+      "projectPath": "C:\\mohamed\\dotnet\\DW_DotNet\\SalesDW.API.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "C:\\mohamed\\dotnet\\SalesDW.API\\SalesDW.API\\obj\\",
+      "outputPath": "C:\\mohamed\\dotnet\\DW_DotNet\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

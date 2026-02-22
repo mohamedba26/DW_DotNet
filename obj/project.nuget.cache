@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YaIATJ1oDZo=",
+  "dgSpecHash": "IV/6thJ5+JI=",
   "success": true,
-  "projectFilePath": "C:\\mohamed\\dotnet\\SalesDW.API\\SalesDW.API\\SalesDW.API.csproj",
+  "projectFilePath": "C:\\mohamed\\dotnet\\DW_DotNet\\SalesDW.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

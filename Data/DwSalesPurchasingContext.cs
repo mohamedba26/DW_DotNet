@@ -30,6 +30,10 @@ public partial class DwSalesPurchasingContext : DbContext
 
     public virtual DbSet<FactSale> FactSales { get; set; }
 
+    public virtual DbSet<Command> Commands { get; set; }
+
+    public virtual DbSet<CommandLine> CommandLines { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("Name=ConnectionStrings:DefaultConnection");
 
@@ -141,6 +145,23 @@ public partial class DwSalesPurchasingContext : DbContext
                 .HasForeignKey(d => d.TerritoryKey)
                 .HasConstraintName("FK_FactSales_Territory");
         });
+
+        modelBuilder.Entity<Command>(entity =>
+        {
+            entity.HasKey(e => e.CommandId);
+            entity.ToTable("Commands");
+            entity.Property(e => e.Date).IsRequired();
+
+            entity.HasMany(e => e.CommandLines).WithOne(cl => cl.Command).HasForeignKey(cl => cl.CommandId);
+        });
+
+        modelBuilder.Entity<CommandLine>(entity =>
+        {
+            entity.HasKey(e => e.CommandLineId);
+            entity.ToTable("CommandLines");
+            entity.Property(e => e.Quantity).IsRequired();
+        });
+
         OnModelCreatingPartial(modelBuilder);
     }
 
