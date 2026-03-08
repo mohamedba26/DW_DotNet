@@ -94,6 +94,71 @@ namespace SalesDW.API.Migrations.SecondDb
 
                     b.ToTable("Users");
                 });
+
+            modelBuilder.Entity("SalesDW.API.Models.Command", b =>
+                {
+                    b.Property<int>("CommandId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CommandId"));
+
+                    b.Property<int>("Approved")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CommandId");
+
+                    b.ToTable("Commands");
+                });
+
+            modelBuilder.Entity("SalesDW.API.Models.CommandLine", b =>
+                {
+                    b.Property<int>("CommandLineId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CommandLineId"));
+
+                    b.Property<int>("CommandId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(1);
+
+                    b.HasKey("CommandLineId");
+
+                    b.HasIndex("CommandId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("CommandLines");
+                });
+
+            modelBuilder.Entity("SalesDW.API.Models.CommandLine", b =>
+                {
+                    b.HasOne("SalesDW.API.Models.Command", "Command")
+                        .WithMany("CommandLines")
+                        .HasForeignKey("CommandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Command");
+                });
+
+            modelBuilder.Entity("SalesDW.API.Models.Command", b =>
+                {
+                    b.Navigation("CommandLines");
+                });
 #pragma warning restore 612, 618
         }
     }

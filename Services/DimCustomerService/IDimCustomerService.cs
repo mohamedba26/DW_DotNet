@@ -1,4 +1,5 @@
 ﻿using SalesDW.API.Models;
+using SalesDW.API.Models.DW.Tables;
 using System.Threading.Tasks;
 
 namespace SalesDW.API.Services.DimCustomerService

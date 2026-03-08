@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using SalesDW.API.Models;
+using SalesDW.API.Models.ProductioDB;
 using SalesDW.API.Services.AuthProductService;
 using System;
 using System.IO;
@@ -33,6 +33,13 @@ public class AuthProductController : ControllerBase
         var item = await _service.GetByIdAsync(id);
         if (item == null) return NotFound();
         return Ok(item);
+    }
+
+    [HttpGet("categories")]
+    public async Task<IActionResult> GetCategories()
+    {
+        var categories = await _service.GetCategoriesAsync();
+        return Ok(categories);
     }
 
     [HttpPost]

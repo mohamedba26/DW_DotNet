@@ -1,8 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using SalesDW.API.Data;
-using SalesDW.API.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
+using SalesDW.API.Models.ProductioDB;
 
 namespace SalesDW.API.Services.AuthProductService
 {
@@ -56,6 +57,17 @@ namespace SalesDW.API.Services.AuthProductService
             _context.Products.Remove(existing);
             await _context.SaveChangesAsync();
             return true;
+        }
+
+        public async Task<IEnumerable<string>> GetCategoriesAsync()
+        {
+            return await _context.Products
+                .AsNoTracking()
+                .Where(p => !string.IsNullOrEmpty(p.Category))
+                .Select(p => p.Category!)
+                .Distinct()
+                .OrderBy(c => c)
+                .ToListAsync();
         }
     }
 }

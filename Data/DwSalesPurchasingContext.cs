@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using SalesDW.API.Models;
+using SalesDW.API.Models.DW.Tables;
+using SalesDW.API.Models.DW.Views;
 
 namespace SalesDW.API.Data;
 
@@ -30,9 +31,19 @@ public partial class DwSalesPurchasingContext : DbContext
 
     public virtual DbSet<FactSale> FactSales { get; set; }
 
-    public virtual DbSet<Command> Commands { get; set; }
+    public virtual DbSet<VwProductProfit> VwProductProfits { get; set; }
 
-    public virtual DbSet<CommandLine> CommandLines { get; set; }
+    public virtual DbSet<VwPurchasingBase> VwPurchasingBases { get; set; }
+
+    public virtual DbSet<VwPurchasingByVendor> VwPurchasingByVendors { get; set; }
+
+    public virtual DbSet<VwSalesBase> VwSalesBases { get; set; }
+
+    public virtual DbSet<VwSalesByTerritory> VwSalesByTerritories { get; set; }
+
+    public virtual DbSet<VwTopProduct> VwTopProducts { get; set; }
+
+    public virtual DbSet<VwTotalSalesByYear> VwTotalSalesByYears { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("Name=ConnectionStrings:DefaultConnection");
@@ -146,20 +157,80 @@ public partial class DwSalesPurchasingContext : DbContext
                 .HasConstraintName("FK_FactSales_Territory");
         });
 
-        modelBuilder.Entity<Command>(entity =>
+        modelBuilder.Entity<VwProductProfit>(entity =>
         {
-            entity.HasKey(e => e.CommandId);
-            entity.ToTable("Commands");
-            entity.Property(e => e.Date).IsRequired();
+            entity
+                .HasNoKey()
+                .ToView("vw_ProductProfit");
 
-            entity.HasMany(e => e.CommandLines).WithOne(cl => cl.Command).HasForeignKey(cl => cl.CommandId);
+            entity.Property(e => e.Category).HasMaxLength(100);
+            entity.Property(e => e.ProductName).HasMaxLength(200);
+            entity.Property(e => e.Profit).HasColumnType("money");
+            entity.Property(e => e.TotalPurchaseAmount).HasColumnType("money");
+            entity.Property(e => e.TotalSalesAmount).HasColumnType("money");
         });
 
-        modelBuilder.Entity<CommandLine>(entity =>
+        modelBuilder.Entity<VwPurchasingBase>(entity =>
         {
-            entity.HasKey(e => e.CommandLineId);
-            entity.ToTable("CommandLines");
-            entity.Property(e => e.Quantity).IsRequired();
+            entity
+                .HasNoKey()
+                .ToView("vw_PurchasingBase");
+
+            entity.Property(e => e.Category).HasMaxLength(100);
+            entity.Property(e => e.LineTotal).HasColumnType("money");
+            entity.Property(e => e.ProductName).HasMaxLength(200);
+            entity.Property(e => e.VendorName).HasMaxLength(200);
+        });
+
+        modelBuilder.Entity<VwPurchasingByVendor>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("vw_PurchasingByVendor");
+
+            entity.Property(e => e.TotalPurchasing).HasColumnType("money");
+            entity.Property(e => e.VendorName).HasMaxLength(200);
+        });
+
+        modelBuilder.Entity<VwSalesBase>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("vw_SalesBase");
+
+            entity.Property(e => e.Category).HasMaxLength(100);
+            entity.Property(e => e.LineTotal).HasColumnType("money");
+            entity.Property(e => e.ProductName).HasMaxLength(200);
+            entity.Property(e => e.TerritoryName).HasMaxLength(100);
+        });
+
+        modelBuilder.Entity<VwSalesByTerritory>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("vw_SalesByTerritory");
+
+            entity.Property(e => e.TerritoryName).HasMaxLength(100);
+            entity.Property(e => e.TotalSales).HasColumnType("money");
+        });
+
+        modelBuilder.Entity<VwTopProduct>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("vw_TopProducts");
+
+            entity.Property(e => e.ProductName).HasMaxLength(200);
+            entity.Property(e => e.Revenue).HasColumnType("money");
+        });
+
+        modelBuilder.Entity<VwTotalSalesByYear>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("vw_TotalSalesByYear");
+
+            entity.Property(e => e.TotalSales).HasColumnType("money");
         });
 
         OnModelCreatingPartial(modelBuilder);

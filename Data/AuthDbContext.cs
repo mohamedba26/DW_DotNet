@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
-using SalesDW.API.Models;
+using SalesDW.API.Models.ProductioDB;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace SalesDW.API.Data;
@@ -11,6 +11,8 @@ public class AuthDbContext : DbContext
 
     public DbSet<AuthUser> Users { get; set; } = null!;
     public DbSet<AuthProduct> Products { get; set; } = null!;
+    public DbSet<Command> Commands { get; set; } = null!;
+    public DbSet<CommandLine> CommandLines { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -33,6 +35,26 @@ public class AuthDbContext : DbContext
             entity.Property(e => e.StandardCost).HasColumnType("money");
             entity.Property(e => e.ListPrice).HasColumnType("money");
             entity.Property(e => e.Image).HasColumnType("nvarchar(max)");
+        });
+
+        modelBuilder.Entity<Command>(entity =>
+        {
+            entity.HasKey(e => e.CommandId);
+            entity.ToTable("Commands");
+            entity.Property(e => e.UserId).IsRequired();
+            entity.Property(e => e.Approved).HasDefaultValue(0);
+            entity.HasMany(e => e.CommandLines)
+                  .WithOne(cl => cl.Command)
+                  .HasForeignKey(cl => cl.CommandId)
+                  .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        modelBuilder.Entity<CommandLine>(entity =>
+        {
+            entity.HasKey(e => e.CommandLineId);
+            entity.ToTable("CommandLines");
+            entity.Property(e => e.Quantity).HasDefaultValue(1);
+            entity.HasIndex(e => e.ProductId);
         });
 
         base.OnModelCreating(modelBuilder);

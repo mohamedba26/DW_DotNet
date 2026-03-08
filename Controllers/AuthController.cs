@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SalesDW.API.Services.AuthService;
-using SalesDW.API.Models;
 using System.Security.Claims;
+using SalesDW.API.Models.ProductioDB;
 
 namespace SalesDW.API.Controllers;
 

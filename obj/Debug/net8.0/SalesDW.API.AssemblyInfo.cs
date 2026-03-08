@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SalesDW.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+743a604b0d9aa5ec937a3c79ff431033bfabf521")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+850574e48576fab8c74c6455e216855187befece")]
 [assembly: System.Reflection.AssemblyProductAttribute("SalesDW.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SalesDW.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

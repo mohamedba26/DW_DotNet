@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using SalesDW.API.Data;
 using SalesDW.API.Models;
+using SalesDW.API.Models.DW.Tables;
 using System.Linq;
 using System.Threading.Tasks;
 

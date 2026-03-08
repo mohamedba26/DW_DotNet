@@ -12,10 +12,34 @@ using SalesDW.API.Services.DimTerritoryService;
 using SalesDW.API.Services.DimVendorService;
 using SalesDW.API.Services.FactPurchasingService;
 using SalesDW.API.Services.FactSaleService;
-using SalesDW.API.Services.StatisticsService;
+using SalesDW.API.Services.CommandService;
+using SalesDW.API.Services.CommandLineService;
+using SalesDW.API.Services.VwProductProfitService;
+using SalesDW.API.Services.VwPurchasingBaseService;
+using SalesDW.API.Services.VwPurchasingByVendorService;
+using SalesDW.API.Services.VwSalesBaseService;
+using SalesDW.API.Services.VwSalesByTerritoryService;
+using SalesDW.API.Services.VwTopProductService;
+using SalesDW.API.Services.VwTotalSalesByYearService;
+using SalesDW.API.Services.KpiService;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+// Add CORS services
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:3000", // Replace with your client app's origin
+                                "https://www.example.com")
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+});
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -61,6 +85,9 @@ builder.Services.AddDbContext<DwSalesPurchasingContext>(options =>
 builder.Services.AddDbContext<AuthDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("AuthConnection")));
 
+// Register IHttpContextAccessor so services can read the current HttpContext (e.g., user claims)
+builder.Services.AddHttpContextAccessor();
+
 // Register services
 builder.Services.AddScoped<IDimCustomerService, DimCustomerService>();
 builder.Services.AddScoped<IDimProductService, DimProductService>();
@@ -69,9 +96,20 @@ builder.Services.AddScoped<IDimTerritoryService, DimTerritoryService>();
 builder.Services.AddScoped<IDimVendorService, DimVendorService>();
 builder.Services.AddScoped<IFactPurchasingService, FactPurchasingService>();
 builder.Services.AddScoped<IFactSaleService, FactSaleService>();
-builder.Services.AddScoped<IStatisticsService, StatisticsService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IAuthProductService, AuthProductService>();
+builder.Services.AddScoped<ICommandService, CommandService>();
+builder.Services.AddScoped<ICommandLineService, CommandLineService>();
+
+// Register generated view services
+builder.Services.AddScoped<IVwProductProfitService, VwProductProfitService>();
+builder.Services.AddScoped<IVwPurchasingBaseService, VwPurchasingBaseService>();
+builder.Services.AddScoped<IVwPurchasingByVendorService, VwPurchasingByVendorService>();
+builder.Services.AddScoped<IVwSalesBaseService, VwSalesBaseService>();
+builder.Services.AddScoped<IVwSalesByTerritoryService, VwSalesByTerritoryService>();
+builder.Services.AddScoped<IVwTopProductService, VwTopProductService>();
+builder.Services.AddScoped<IVwTotalSalesByYearService, VwTotalSalesByYearService>();
+builder.Services.AddScoped<IKpiService, KpiService>();
 
 // Configure JWT
 var jwtKey = builder.Configuration["Jwt:Key"];
@@ -99,7 +137,11 @@ builder.Services.AddAuthentication(options =>
         IssuerSigningKey = new SymmetricSecurityKey(key)
     };
 });
-
+builder.Services.AddCors(options => {
+    options.AddPolicy("AllowAngular", policy => {
+        policy.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod();
+    });
+});
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -108,6 +150,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
+
+app.UseCors("AllowAngular");
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();

@@ -1,4 +1,4 @@
-using SalesDW.API.Models;
+using SalesDW.API.Models.ProductioDB;
 
 namespace SalesDW.API.Services.AuthService;
 

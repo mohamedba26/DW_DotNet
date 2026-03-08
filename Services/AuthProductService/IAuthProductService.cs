@@ -1,4 +1,4 @@
-using SalesDW.API.Models;
+using SalesDW.API.Models.ProductioDB;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -11,5 +11,6 @@ namespace SalesDW.API.Services.AuthProductService
         Task<AuthProduct> CreateAsync(AuthProduct p);
         Task<AuthProduct?> UpdateAsync(int id, AuthProduct p);
         Task<bool> DeleteAsync(int id);
+        Task<IEnumerable<string>> GetCategoriesAsync();
     }
 }

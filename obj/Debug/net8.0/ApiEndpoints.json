@@ -41,7 +41,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "SalesDW.API.Models.ResetPasswordDto",
+        "Type": "SalesDW.API.Models.ProductioDB.ResetPasswordDto",
         "IsRequired": true
       }
     ],
@@ -190,6 +190,184 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SalesDW.API.Controllers.AuthProductController",
+    "Method": "GetCategories",
+    "RelativePath": "api/AuthProduct/categories",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SalesDW.API.Controllers.CommandController",
+    "Method": "GetAll",
+    "RelativePath": "api/Command",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SalesDW.API.Controllers.CommandController",
+    "Method": "Create",
+    "RelativePath": "api/Command",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SalesDW.API.Controllers.CommandController",
+    "Method": "GetById",
+    "RelativePath": "api/Command/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SalesDW.API.Controllers.CommandController",
+    "Method": "Update",
+    "RelativePath": "api/Command/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "cmd",
+        "Type": "SalesDW.API.Models.ProductioDB.Command",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SalesDW.API.Controllers.CommandController",
+    "Method": "Delete",
+    "RelativePath": "api/Command/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SalesDW.API.Controllers.CommandLineController",
+    "Method": "GetAll",
+    "RelativePath": "api/CommandLine",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SalesDW.API.Controllers.CommandLineController",
+    "Method": "Create",
+    "RelativePath": "api/CommandLine",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "line",
+        "Type": "SalesDW.API.Models.ProductioDB.CommandLine",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SalesDW.API.Controllers.CommandLineController",
+    "Method": "GetById",
+    "RelativePath": "api/CommandLine/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SalesDW.API.Controllers.CommandLineController",
+    "Method": "Update",
+    "RelativePath": "api/CommandLine/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "line",
+        "Type": "SalesDW.API.Models.ProductioDB.CommandLine",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SalesDW.API.Controllers.CommandLineController",
+    "Method": "Delete",
+    "RelativePath": "api/CommandLine/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SalesDW.API.Controllers.CommandLineController",
+    "Method": "GetByCommandId",
+    "RelativePath": "api/CommandLine/bypid/{commandId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "commandId",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -424,9 +602,19 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SalesDW.API.Controllers.StatisticsController",
-    "Method": "ProductsByProfit",
-    "RelativePath": "api/Statistics/products-by-profit",
+    "ContainingType": "SalesDW.API.Controllers.KpiController",
+    "Method": "GetKpis",
+    "RelativePath": "api/Kpi/getKpis",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SalesDW.API.Controllers.VwProductProfitController",
+    "Method": "GetAll",
+    "RelativePath": "api/VwProductProfit",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -437,28 +625,7 @@
         "IsRequired": false
       },
       {
-        "Name": "category",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "sort",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SalesDW.API.Controllers.StatisticsController",
-    "Method": "PurchasingByVendor",
-    "RelativePath": "api/Statistics/purchasing-by-vendor",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "sort",
+        "Name": "order",
         "Type": "System.String",
         "IsRequired": false
       },
@@ -471,108 +638,25 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SalesDW.API.Controllers.StatisticsController",
-    "Method": "SalesByTerritory",
-    "RelativePath": "api/Statistics/sales-by-territory",
+    "ContainingType": "SalesDW.API.Controllers.VwProductProfitController",
+    "Method": "GetByProductKey",
+    "RelativePath": "api/VwProductProfit/product/{productKey}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "sort",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "category",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SalesDW.API.Controllers.StatisticsController",
-    "Method": "SalesByVendor",
-    "RelativePath": "api/Statistics/sales-by-vendor",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "sort",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "top",
+        "Name": "productKey",
         "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "category",
-        "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SalesDW.API.Controllers.StatisticsController",
-    "Method": "SalesByYear",
-    "RelativePath": "api/Statistics/sales-by-year",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "sort",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "category",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SalesDW.API.Controllers.StatisticsController",
-    "Method": "TimeSeries",
-    "RelativePath": "api/Statistics/time-series",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "metric",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "period",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "months",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "category",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SalesDW.API.Controllers.StatisticsController",
-    "Method": "TopProducts",
-    "RelativePath": "api/Statistics/top-products",
+    "ContainingType": "SalesDW.API.Controllers.VwPurchasingBaseController",
+    "Method": "GetAll",
+    "RelativePath": "api/VwPurchasingBase",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -583,7 +667,137 @@
         "IsRequired": false
       },
       {
-        "Name": "sort",
+        "Name": "order",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "category",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SalesDW.API.Controllers.VwPurchasingByVendorController",
+    "Method": "GetAll",
+    "RelativePath": "api/VwPurchasingByVendor",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "top",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "order",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "category",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SalesDW.API.Controllers.VwSalesBaseController",
+    "Method": "GetAll",
+    "RelativePath": "api/VwSalesBase",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "top",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "order",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "category",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SalesDW.API.Controllers.VwSalesByTerritoryController",
+    "Method": "GetAll",
+    "RelativePath": "api/VwSalesByTerritory",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "top",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "order",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "territory",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SalesDW.API.Controllers.VwTopProductController",
+    "Method": "GetAll",
+    "RelativePath": "api/VwTopProduct",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "top",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "order",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "category",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SalesDW.API.Controllers.VwTotalSalesByYearController",
+    "Method": "GetAll",
+    "RelativePath": "api/VwTotalSalesByYear",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "top",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "order",
         "Type": "System.String",
         "IsRequired": false
       }

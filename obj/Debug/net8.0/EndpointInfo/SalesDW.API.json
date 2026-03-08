@@ -315,6 +315,272 @@
         }
       }
     },
+    "/api/AuthProduct/categories": {
+      "get": {
+        "tags": [
+          "AuthProduct"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Command": {
+      "get": {
+        "tags": [
+          "Command"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Command"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Command/{id}": {
+      "get": {
+        "tags": [
+          "Command"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Command"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Command"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Command"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Command"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Command"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CommandLine": {
+      "get": {
+        "tags": [
+          "CommandLine"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "CommandLine"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommandLine"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommandLine"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommandLine"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CommandLine/{id}": {
+      "get": {
+        "tags": [
+          "CommandLine"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "CommandLine"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommandLine"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommandLine"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommandLine"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "CommandLine"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CommandLine/bypid/{commandId}": {
+      "get": {
+        "tags": [
+          "CommandLine"
+        ],
+        "parameters": [
+          {
+            "name": "commandId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/DimCustomer": {
       "get": {
         "tags": [
@@ -654,27 +920,10 @@
         }
       }
     },
-    "/api/Statistics/purchasing-by-vendor": {
+    "/api/Kpi/getKpis": {
       "get": {
         "tags": [
-          "Statistics"
-        ],
-        "parameters": [
-          {
-            "name": "sort",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "default": "desc"
-            }
-          },
-          {
-            "name": "category",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
+          "Kpi"
         ],
         "responses": {
           "200": {
@@ -683,10 +932,10 @@
         }
       }
     },
-    "/api/Statistics/top-products": {
+    "/api/VwProductProfit": {
       "get": {
         "tags": [
-          "Statistics"
+          "VwProductProfit"
         ],
         "parameters": [
           {
@@ -695,33 +944,11 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "default": 10
+              "default": 50
             }
           },
           {
-            "name": "sort",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "default": "desc"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Statistics/sales-by-territory": {
-      "get": {
-        "tags": [
-          "Statistics"
-        ],
-        "parameters": [
-          {
-            "name": "sort",
+            "name": "order",
             "in": "query",
             "schema": {
               "type": "string",
@@ -743,63 +970,19 @@
         }
       }
     },
-    "/api/Statistics/sales-by-year": {
+    "/api/VwProductProfit/product/{productKey}": {
       "get": {
         "tags": [
-          "Statistics"
+          "VwProductProfit"
         ],
         "parameters": [
           {
-            "name": "sort",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "default": "desc"
-            }
-          },
-          {
-            "name": "category",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Statistics/sales-by-vendor": {
-      "get": {
-        "tags": [
-          "Statistics"
-        ],
-        "parameters": [
-          {
-            "name": "sort",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "default": "desc"
-            }
-          },
-          {
-            "name": "top",
-            "in": "query",
+            "name": "productKey",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "integer",
-              "format": "int32",
-              "default": 0
-            }
-          },
-          {
-            "name": "category",
-            "in": "query",
-            "schema": {
-              "type": "string"
+              "format": "int32"
             }
           }
         ],
@@ -810,10 +993,10 @@
         }
       }
     },
-    "/api/Statistics/products-by-profit": {
+    "/api/VwPurchasingBase": {
       "get": {
         "tags": [
-          "Statistics"
+          "VwPurchasingBase"
         ],
         "parameters": [
           {
@@ -822,7 +1005,15 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "default": 10
+              "default": 50
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "desc"
             }
           },
           {
@@ -830,14 +1021,6 @@
             "in": "query",
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "name": "sort",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "default": "desc"
             }
           }
         ],
@@ -848,35 +1031,27 @@
         }
       }
     },
-    "/api/Statistics/time-series": {
+    "/api/VwPurchasingByVendor": {
       "get": {
         "tags": [
-          "Statistics"
+          "VwPurchasingByVendor"
         ],
         "parameters": [
           {
-            "name": "metric",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "default": "sales"
-            }
-          },
-          {
-            "name": "period",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "default": "month"
-            }
-          },
-          {
-            "name": "months",
+            "name": "top",
             "in": "query",
             "schema": {
               "type": "integer",
               "format": "int32",
-              "default": 12
+              "default": 50
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "desc"
             }
           },
           {
@@ -884,6 +1059,151 @@
             "in": "query",
             "schema": {
               "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/VwSalesBase": {
+      "get": {
+        "tags": [
+          "VwSalesBase"
+        ],
+        "parameters": [
+          {
+            "name": "top",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 50
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "desc"
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/VwSalesByTerritory": {
+      "get": {
+        "tags": [
+          "VwSalesByTerritory"
+        ],
+        "parameters": [
+          {
+            "name": "top",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 50
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "desc"
+            }
+          },
+          {
+            "name": "territory",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/VwTopProduct": {
+      "get": {
+        "tags": [
+          "VwTopProduct"
+        ],
+        "parameters": [
+          {
+            "name": "top",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 50
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "desc"
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/VwTotalSalesByYear": {
+      "get": {
+        "tags": [
+          "VwTotalSalesByYear"
+        ],
+        "parameters": [
+          {
+            "name": "top",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 50
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "desc"
             }
           }
         ],
@@ -897,6 +1217,53 @@
   },
   "components": {
     "schemas": {
+      "Command": {
+        "type": "object",
+        "properties": {
+          "commandId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "approved": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "commandLines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CommandLine"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CommandLine": {
+        "type": "object",
+        "properties": {
+          "commandLineId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "commandId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "productId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "LoginRequest": {
         "type": "object",
         "properties": {
